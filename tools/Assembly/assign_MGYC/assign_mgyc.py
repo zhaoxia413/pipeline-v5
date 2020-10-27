@@ -96,7 +96,7 @@ if __name__ == "__main__":
             record.description = mgy_accession
             SeqIO.write(record, new_fasta, "fasta")
             dict_contig[record.id] = mgy_accession
-    if args.save_pickle:
+    if args.save_json:
         filepath = os.path.join(mapping_dir, args.accession)
         with open(filepath + '.json', 'w') as json_file:
             json.dump(dict_contig, json_file)
