@@ -92,10 +92,10 @@ if __name__ == "__main__":
             hash_erz_seq = create_digest(args.accession + record.seq)
             next_acc += 1
             accession_file.write(' '.join([mgy_accession, hash_erz_seq, hash_seq, length, kmer_covarage]) + '\n')
+            dict_contig[record.id] = mgy_accession
             record.id = mgy_accession
             record.description = mgy_accession
             SeqIO.write(record, new_fasta, "fasta")
-            dict_contig[record.id] = mgy_accession
     if args.save_json:
         filepath = os.path.join(mapping_dir, args.accession)
         with open(filepath + '.json', 'w') as json_file:
