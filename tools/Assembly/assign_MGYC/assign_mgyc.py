@@ -63,7 +63,7 @@ def get_kmercoverage(header):
 
 def open_fasta(filename):
     if filename.endswith('.gz'):
-        return gzip.open(filename, 'rb')
+        return gzip.open(filename, 'rt')
     else:
         return open(filename, 'r')
 

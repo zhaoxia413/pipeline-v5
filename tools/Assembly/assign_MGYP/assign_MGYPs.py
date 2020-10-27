@@ -248,7 +248,7 @@ if __name__ == "__main__":
                                                             obs_biome=obs_biome, public=public_value)
                     # write table of protein data
                     file_peptides.write(' '.join([mgy_accession, record.id, start_coordinate, stop_coordinate, strand,
-                                                  partial, caller]))
+                                                  partial, caller]) + '\n')
                     record.id = mgy_accession
                     record.description = mgy_accession
                     # write fasta file with new accessions
