@@ -7,6 +7,7 @@ import hashlib
 from oslo_concurrency import lockutils
 import _pickle as cPickle
 import gzip
+import json
 
 
 def get_args():
@@ -15,7 +16,7 @@ def get_args():
     parser.add_argument('-m', '--mapping', dest='mapping', required=True, help='folder to save MGYCs')
     parser.add_argument("-c", "--count", help="number of sequences in fasta file", dest="count", required=True)
     parser.add_argument("-a", "--accession", help="run accession", dest="accession", required=True)
-    parser.add_argument("--save-pickle", help="Save table to pickle", action='store_true', required=False)
+    parser.add_argument("--save-json", help="Save table to json", action='store_true', required=False)
     return parser
 
 
@@ -97,5 +98,6 @@ if __name__ == "__main__":
             dict_contig[record.id] = mgy_accession
     if args.save_pickle:
         filepath = os.path.join(mapping_dir, args.accession)
-        with open(filepath + '.pkl', 'wb') as pickle_file:
-            cPickle.dump(dict_contig, pickle_file)
+        with open(filepath + '.json', 'w') as json_file:
+            json.dump(dict_contig, json_file)
+
