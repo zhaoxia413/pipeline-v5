@@ -16,6 +16,7 @@ def get_args():
     parser.add_argument('-m', '--mapping', dest='mapping', required=True, help='config')
     parser.add_argument("-c", "--count", help="number of sequences in fasta file", dest="count", required=True)
     parser.add_argument("-a", "--accession", help="run accession", dest="accession", required=True)
+    parser.add_argument("-s", "--study", help="study accession", dest="study", required=True)
     parser.add_argument("--path-fasta", help="generate mgyp.fasta in assembly_peptides folder", required=False,
                         action='store_true',)
     parser.add_argument("--save-json", help="Save table to json", action='store_true', required=False)
@@ -82,7 +83,7 @@ if __name__ == "__main__":
         max_acc_dir = os.path.join(config['max_acc'], TYPE)
     print('max_acc file ', max_acc_dir)
     print('Run: ' + accession)
-    mapping_dir = os.path.join(assembly_peptides_dir, accession[:7], accession)
+    mapping_dir = os.path.join(assembly_peptides_dir, args.study, accession)
     os.makedirs(mapping_dir, exist_ok=True)
     print('map-file ', mapping_dir)
     # update number
