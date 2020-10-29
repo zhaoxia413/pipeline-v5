@@ -19,11 +19,11 @@ requirements:
 inputs:
     filtered_fasta: File
 
-    mapping_directory_mgyc: string?
     private: boolean?
     include_protein_assign: boolean?
     mgyp_config: string?
     mgyp_release: string?
+    mgyc_config: string?
 
  # << rna prediction >>
     ssu_db: {type: File, secondaryFiles: [.mscluster] }
@@ -170,7 +170,7 @@ steps:
     in:
       include_protein_assign_bool: include_protein_assign
       input_fasta: filtered_fasta
-      mapping: mapping_directory_mgyc
+      mapping: mgyc_config
       count: count_sequences_fasta/count
       accession:
         source: filtered_fasta

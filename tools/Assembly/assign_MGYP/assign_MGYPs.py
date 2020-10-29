@@ -95,7 +95,7 @@ def save_map_file(map, cur_twochar):
     pickle_file.close()
     gc.enable()
     end = time.time()
-    logging.debug('Saving took ' + str(end - start) + 's')
+    logging.info('Saving took ' + str(end - start) + 's')
 
 
 def map_accessions(seq, partial, map, next_acc, biome, obs_biome, assembly, public):
